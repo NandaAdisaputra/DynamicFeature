@@ -3,16 +3,15 @@ plugins {
     id 'org.jetbrains.kotlin.android'
     id 'kotlin-parcelize'
     id 'kotlin-kapt'
-    id 'dagger.hilt.android.plugin'
 }
 apply from: '../shared_dependencies.gradle'
 
 android {
-    namespace 'com.nandaadisaputra.dagger'
+    namespace 'com.nandaadisaputra.koin'
     compileSdk 33
 
     defaultConfig {
-        applicationId "com.nandaadisaputra.dagger"
+        applicationId "com.nandaadisaputra.koin"
         minSdk 23
         targetSdk 33
         versionCode 1
@@ -37,9 +36,11 @@ android {
     buildFeatures {
         viewBinding = true
     }
+    dynamicFeatures = [':maps']
 }
 
 dependencies {
     implementation project(":core")
     implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
 }

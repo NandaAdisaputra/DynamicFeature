@@ -3,12 +3,11 @@ plugins {
     id 'org.jetbrains.kotlin.android'
     id 'kotlin-parcelize'
     id 'kotlin-kapt'
-    id 'dagger.hilt.android.plugin'
 }
 apply from: '../shared_dependencies.gradle'
 
 android {
-    namespace 'com.nandaadisaputra.dagger.core'
+    namespace 'com.nandaadisaputra.koin.core'
     compileSdk 33
 
     defaultConfig {
@@ -39,6 +38,8 @@ android {
 
 dependencies {
     implementation fileTree(dir: "libs", include: ["*.jar"])
+    implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
+
     implementation "androidx.room:room-runtime:$room_version"
     kapt "androidx.room:room-compiler:$room_version"
     androidTestImplementation "androidx.room:room-testing:$room_version"
